@@ -36,6 +36,24 @@ class Person(IdEqualityMixin, ModelToStringMixin):
         self.id = id
 
 
+class Assignment(FieldsEqualityMixin, ModelToStringMixin):
+    def __init__(self, person=None, subject_ids_to_term_ids=dict()):
+        self.subject_ids_to_term_ids = subject_ids_to_term_ids
+        self.person = person
+
+    def get_term(self, subject_id):
+        return self.subject_ids_to_term_ids[subject_id]
+
+    def __eq__(self, other):
+        return isinstance(other, self.__class__) and self.person == other.person
+
+    def __ne__(self, other):
+        return not self.__eq__(other)
+
+    def __hash__(self):
+        return hash(self.person)
+
+
 class Preference(IdEqualityMixin, ModelToStringMixin):
     def __init__(self, person=None, term_ids_to_points=dict()):
         self.term_ids_to_points = term_ids_to_points
