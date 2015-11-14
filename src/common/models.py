@@ -36,6 +36,24 @@ class Person(IdEqualityMixin, ModelToStringMixin):
         self.id = id
 
 
+class Preference(IdEqualityMixin, ModelToStringMixin):
+    def __init__(self, person=None, term_ids_to_points=dict()):
+        self.term_ids_to_points = term_ids_to_points
+        self.person = person
+
+    def get_points(self, term_id):
+        return self.term_ids_to_points.get(term_id)
+
+    def __eq__(self, other):
+        return isinstance(other, self.__class__) and self.person == other.person
+
+    def __ne__(self, other):
+        return not self.__eq__(other)
+
+    def __hash__(self):
+        return hash(self.person)
+
+
 class Subject(IdEqualityMixin, ModelToStringMixin):
     def __init__(self, id=None):
         self.id = id

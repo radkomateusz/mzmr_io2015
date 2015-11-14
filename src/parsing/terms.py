@@ -14,7 +14,7 @@ def parse_subjects_and_terms(raw_text):
     subjects = set()
     terms = dict()
 
-    subjects_raw = re.findall(r'\[\d+\].*?(?=\[)', raw_text, re.DOTALL)
+    subjects_raw = re.findall(r'\[\d+\].*?(?=\[|\Z)', raw_text, re.DOTALL)
     for subject_raw in subjects_raw:
         subject_id_raw = re.findall(r'\[(\d+)\]', subject_raw, re.DOTALL)
         subject = Subject(id=int(subject_id_raw[0]))
