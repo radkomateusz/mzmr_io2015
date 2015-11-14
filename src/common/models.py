@@ -1,3 +1,8 @@
+class ModelToStringMixin(object):
+    def __str__(self):
+        return str(self.__class__.__name__) + str(self.__dict__)
+
+
 class IdEqualityMixin(object):
     def __eq__(self, other):
         return isinstance(other, self.__class__) and self.id == other.id
@@ -20,25 +25,26 @@ class FieldsEqualityMixin(object):
         return hash(frozenset(self.__dict__.items()))
 
 
-class Group(FieldsEqualityMixin):
+class Group(FieldsEqualityMixin, ModelToStringMixin):
     def __init__(self, subject=None, participants=frozenset()):
         self.subject = subject
         self.participants = frozenset(participants)
 
 
-class Person(IdEqualityMixin):
+class Person(IdEqualityMixin, ModelToStringMixin):
     def __init__(self, id=None):
         self.id = id
 
 
-class Subject(IdEqualityMixin):
+class Subject(IdEqualityMixin, ModelToStringMixin):
     def __init__(self, id=None):
         self.id = id
 
 
-class Term(IdEqualityMixin):
-    def __init__(self, id=None, subject=None, collisions=frozenset()):
+class Term(IdEqualityMixin, ModelToStringMixin):
+    def __init__(self, id=None, subject=None, capacity=0, collisions=frozenset()):
         self.collisions = frozenset(collisions)
+        self.capacity = capacity
         self.subject = subject
         self.id = id
 
