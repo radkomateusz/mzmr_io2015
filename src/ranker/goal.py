@@ -3,6 +3,7 @@ from itertools import groupby
 
 class Context:
     def __init__(self):
+        self.capacity_excessions = []
         self.groups_broken = 0
         self.people_with_unassigned = 0
         self.people_count = 0
@@ -37,6 +38,28 @@ def evaluate_goal(configuration, assignments):
     ) for assignment in assignments}
 
     context = Context()
+    account_person_prefs(context, person_id_to_assignments, person_id_to_preferences, person_id_to_subject_to_assigned,
+                         person_id_to_subject_to_max)
+    account_groups(configuration, context, person_id_to_assignments)
+    account_capacity(assignments, configuration, context)
+
+    print context.__dict__
+    return evaluate_goal_value(context), evaluate_completness(context)
+
+
+def account_capacity(assignments, configuration, context):
+    pairs = [pair for ass in assignments for pair in ass.subject_ids_to_term_ids.items()]
+    counts = {term_id: 0 for _, term_id in pairs}
+    for _, term_id in pairs:
+        counts[term_id] += 1
+    for term in configuration.terms:
+        if term.capacity < counts.get(term.id, 0):
+            print term.id, '================'
+            context.capacity_excessions.append(counts[term.id] - term.capacity)
+
+
+def account_person_prefs(context, person_id_to_assignments, person_id_to_preferences, person_id_to_subject_to_assigned,
+                         person_id_to_subject_to_max):
     for person_id in person_id_to_preferences.keys():
         person_maxes = person_id_to_subject_to_max[person_id]
         person_assigned = person_id_to_subject_to_assigned.get(person_id, {})
@@ -57,19 +80,20 @@ def evaluate_goal(configuration, assignments):
 
         context.people_count += 1
 
+
+def account_groups(configuration, context, person_id_to_assignments):
     for group in configuration.groups:
         if len({person_id_to_assignments[person.id][group.subject.id] for person in group.participants}) > 1:
             context.groups_broken += 1
-
-    print context.__dict__
-    return evaluate_goal_value(context), evaluate_completness(context)
 
 
 def evaluate_goal_value(context):
     impossibilities_factor = float(100 * context.people_with_impossibilities) / context.people_count
     missing_factor = 2. * context.people_with_unassigned / context.people_count
     groups_factor = context.groups_broken / context.people_count
-    return float(context.total_assigned) / context.total_maxes - impossibilities_factor - missing_factor -groups_factor
+    capacity_factor = sum([float(x * x) for x in context.capacity_excessions]) / context.people_count
+    base = float(context.total_assigned) / context.total_maxes
+    return base - impossibilities_factor - missing_factor - groups_factor - capacity_factor
 
 
 def evaluate_completness(context):
