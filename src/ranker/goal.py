@@ -43,7 +43,7 @@ def evaluate_goal(configuration, assignments):
     account_groups(configuration, context, person_id_to_assignments)
     account_capacity(assignments, configuration, context)
 
-    print context.__dict__
+    # print context.__dict__
     return evaluate_goal_value(context), evaluate_completness(context)
 
 
