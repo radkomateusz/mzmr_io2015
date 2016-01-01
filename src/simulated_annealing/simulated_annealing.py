@@ -3,12 +3,14 @@ from random import randint
 import math
 import copy
 from datetime import datetime
-
 from parsing.parser import parse
 from ranker.goal import evaluate_goal
 
 
-class Simmulated_Annealing:
+class SimulatedAnnealing:
+    STARTING_TEMPERATURE = 100
+    MIN_TEMPERATURE = 1e-10
+
     def __init__(self, configuration, assignments):
         self.configuration = configuration
         self.current_assignments = assignments
@@ -20,7 +22,7 @@ class Simmulated_Annealing:
         value, completness = evaluate_goal(self.configuration, assignments)
         return value
 
-    def generate_next_assigments(self, assignments):
+    def generate_next_assignments(self, assignments):
         assignments = copy.deepcopy(assignments)
 
         size = len(assignments)
@@ -37,7 +39,7 @@ class Simmulated_Annealing:
         assignment_second = dict(assignments[j].subject_ids_to_term_ids)
         for key in assignment_first:
             if key in assignment_second:
-                if random() > 0.5:
+                if random() > 0.5:  # todo: co to robi?
                     tmp = assignment_second[key]
                     assignment_second[key] = assignment_first[key]
                     assignment_first[key] = tmp
@@ -62,36 +64,35 @@ class Simmulated_Annealing:
         pass
 
     def anneal(self):
-        TEMP = 100
-        TEMP_min = 0.0000000001
+        temperature = self.STARTING_TEMPERATURE
         alpha = 0.999
 
         with open('results_' + datetime.now().strftime('%Y_%m_%d_%H_%M_%S') + '.csv', 'a') as file:
             file.write(
-                    "Temperature: " + str(TEMP) +
-                    "\nTemperature MIN: " + str(TEMP_min) +
-                    "\nalpha: " + str(alpha) +
-                    "\n\n Goal function values:\n")
+                "Starting temperature: " + str(temperature) +
+                "\nTemperature to stop at: " + str(self.MIN_TEMPERATURE) +
+                "\nalpha: " + str(alpha) +
+                "\n\n Goal function values:\n")
 
-            while TEMP > TEMP_min:
-                new_assignments = self.generate_next_assigments(self.current_assignments)
+            while temperature > self.MIN_TEMPERATURE:
+                new_assignments = self.generate_next_assignments(self.current_assignments)
                 new_cost = self.cost(new_assignments)
 
                 self.save_if_best_solution(new_assignments, new_cost)
 
-                if self.acceptance_probability(self.current_cost, new_cost, TEMP) > random():
+                if self.acceptance_probability(self.current_cost, new_cost, temperature) > random():
                     self.current_assignments = new_assignments
                     self.current_cost = new_cost
 
                 file.write("{0}\n".format(self.current_cost))
-                TEMP = TEMP * alpha
+                temperature *= alpha
 
         return self.current_assignments, self.current_cost, self.best_assignments, self.best_cost
 
 
 configuration, assignments = parse()
 
-annealing_engine = Simmulated_Annealing(configuration, list(assignments))
+annealing_engine = SimulatedAnnealing(configuration, list(assignments))
 assignments, current_cost, best_assignments, best_cost = annealing_engine.anneal()
 
 print "Current goal value: " + str(current_cost)

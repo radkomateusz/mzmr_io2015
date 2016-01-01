@@ -54,7 +54,7 @@ def account_capacity(assignments, configuration, context):
         counts[term_id] += 1
     for term in configuration.terms:
         if term.capacity < counts.get(term.id, 0):
-            print term.id, '================'
+            # print term.id, '================'
             context.capacity_excessions.append(counts[term.id] - term.capacity)
 
 
