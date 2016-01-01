@@ -1,10 +1,11 @@
-from random import random
-from random import randint
+# coding=utf-8
+from random import random, randint
 import math
 import copy
 from datetime import datetime
 from parsing.parser import parse
 from ranker.goal import evaluate_goal
+from changes import Changes
 
 
 class SimulatedAnnealing:
@@ -22,30 +23,21 @@ class SimulatedAnnealing:
         value, completness = evaluate_goal(self.configuration, assignments)
         return value
 
-    def generate_next_assignments(self, assignments):
-        assignments = copy.deepcopy(assignments)
-
-        size = len(assignments)
-        i = j = randint(0, size - 1)
-        while i == j:
-            j = randint(0, size - 1)
-
-        self.swap_common_subjects_for_given_persons(assignments, i, j)
-
-        return assignments
+    def generate_next_assignments(self, assignments, temperature):
+        depth = randint(1, 4)
+        return Changes.chained(assignments, depth=depth), depth
 
     def swap_common_subjects_for_given_persons(self, assignments, i, j):
         assignment_first = dict(assignments[i].subject_ids_to_term_ids)
         assignment_second = dict(assignments[j].subject_ids_to_term_ids)
         for key in assignment_first:
             if key in assignment_second:
-                if random() > 0.5:  # todo: co to robi?
+                if random() > 0.5:  # todo: co to robi? wyrzuciłem o w Changes a może trzeba dodać
                     tmp = assignment_second[key]
                     assignment_second[key] = assignment_first[key]
                     assignment_first[key] = tmp
         assignments[i].subject_ids_to_term_ids = assignment_first
         assignments[j].subject_ids_to_term_ids = assignment_second
-        pass
 
     def acceptance_probability(self, old_cost, new_cost, T):
         # print "newcost: ",new_cost
@@ -67,6 +59,7 @@ class SimulatedAnnealing:
         temperature = self.STARTING_TEMPERATURE
         alpha = 0.999
 
+        iter_num = 1
         with open('results_' + datetime.now().strftime('%Y_%m_%d_%H_%M_%S') + '.csv', 'a') as file:
             file.write(
                 "Starting temperature: " + str(temperature) +
@@ -75,7 +68,7 @@ class SimulatedAnnealing:
                 "\n\n Goal function values:\n")
 
             while temperature > self.MIN_TEMPERATURE:
-                new_assignments = self.generate_next_assignments(self.current_assignments)
+                new_assignments, depth = self.generate_next_assignments(self.current_assignments, temperature)
                 new_cost = self.cost(new_assignments)
 
                 self.save_if_best_solution(new_assignments, new_cost)
@@ -84,8 +77,9 @@ class SimulatedAnnealing:
                     self.current_assignments = new_assignments
                     self.current_cost = new_cost
 
-                file.write("{0}\n".format(self.current_cost))
+                file.write("{0};\t{1};\t{2}\n".format(iter_num, self.current_cost, depth))
                 temperature *= alpha
+                iter_num += 1
 
         return self.current_assignments, self.current_cost, self.best_assignments, self.best_cost
 
