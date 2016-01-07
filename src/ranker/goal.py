@@ -45,7 +45,12 @@ def evaluate_goal(configuration, assignments):
                          person_id_to_subject_to_max)
     account_groups(configuration, context, person_id_to_assignments)
     account_capacity(assignments, configuration, context)
+    account_collisions(assignments, context, term_id_to_term)
 
+    return evaluate_goal_value(context), evaluate_completness(context)
+
+
+def account_collisions(assignments, context, term_id_to_term):
     for terms in [ass.subject_ids_to_term_ids.values() for ass in assignments]:
         collisions = 0
         for i in xrange(len(terms)):
@@ -57,9 +62,6 @@ def evaluate_goal(configuration, assignments):
         if collisions > 0:
             context.people_with_collisions += 1
         context.assigned_collisions += collisions
-
-    # print context.__dict__
-    return evaluate_goal_value(context), evaluate_completness(context)
 
 
 def account_capacity(assignments, configuration, context):

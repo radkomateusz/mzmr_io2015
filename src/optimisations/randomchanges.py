@@ -1,12 +1,12 @@
 import copy
-from random import randint, random, choice, sample
+from random import randint, random, sample
 
 
-class Changes:
+class RandomChanges:
     @staticmethod
     def single(source_assignments):
         assignments = copy.deepcopy(source_assignments)
-        Changes.do_single_change(assignments)
+        RandomChanges.do_single_change(assignments)
         return assignments
 
     @staticmethod
@@ -42,11 +42,11 @@ class Changes:
     def chained(source_assignments, depth=1):
         assignments = copy.deepcopy(source_assignments)
 
-        first, second = Changes.do_single_change(assignments)
+        first, second = RandomChanges.do_single_change(assignments)
 
         people_to_avoid = set()
         for i in xrange(depth - 1):
             people_to_avoid.add(first)
-            first, second = Changes.do_single_change(assignments, person_to_use=second, people_to_avoid=people_to_avoid)
+            first, second = RandomChanges.do_single_change(assignments, person_to_use=second, people_to_avoid=people_to_avoid)
 
         return assignments

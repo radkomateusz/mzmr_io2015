@@ -5,7 +5,7 @@ import copy
 from datetime import datetime
 from parsing.parser import parse
 from ranker.goal import evaluate_goal
-from changes import Changes
+from randomchanges import RandomChanges
 
 
 class SimulatedAnnealing:
@@ -25,7 +25,7 @@ class SimulatedAnnealing:
 
     def generate_next_assignments(self, assignments, temperature):
         depth = randint(1, 4)
-        return Changes.chained(assignments, depth=depth), depth
+        return RandomChanges.chained(assignments, depth=depth), depth
 
     def swap_common_subjects_for_given_persons(self, assignments, i, j):
         assignment_first = dict(assignments[i].subject_ids_to_term_ids)
@@ -77,6 +77,7 @@ class SimulatedAnnealing:
                     self.current_assignments = new_assignments
                     self.current_cost = new_cost
 
+                print("{0};\t{1};\t{2}".format(iter_num, self.current_cost, depth))
                 file.write("{0};\t{1};\t{2}\n".format(iter_num, self.current_cost, depth))
                 temperature *= alpha
                 iter_num += 1
