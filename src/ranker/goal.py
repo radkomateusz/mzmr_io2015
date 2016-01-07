@@ -14,6 +14,9 @@ class Context:
         self.assigned_impossibilities = 0
         self.people_with_impossibilities = 0
 
+        self.assigned_collisions = 0
+        self.people_with_collisions = 0
+
 
 def get_maxes_for_subjects(term_ids_to_points, term_id_to_term):
     pairs = [(term_id_to_term[id].subject.id, points) for id, points in term_ids_to_points.iteritems()]
@@ -42,6 +45,18 @@ def evaluate_goal(configuration, assignments):
                          person_id_to_subject_to_max)
     account_groups(configuration, context, person_id_to_assignments)
     account_capacity(assignments, configuration, context)
+
+    for terms in [ass.subject_ids_to_term_ids.values() for ass in assignments]:
+        collisions = 0
+        for i in xrange(len(terms)):
+            for j in xrange(i + 1, len(terms)):
+                term1 = term_id_to_term[terms[i]]
+                term2 = term_id_to_term[terms[j]]
+                if term2 in term1.collisions:
+                    collisions += 1
+        if collisions > 0:
+            context.people_with_collisions += 1
+        context.assigned_collisions += collisions
 
     # print context.__dict__
     return evaluate_goal_value(context), evaluate_completness(context)
@@ -89,11 +104,12 @@ def account_groups(configuration, context, person_id_to_assignments):
 
 def evaluate_goal_value(context):
     impossibilities_factor = float(100 * context.people_with_impossibilities) / context.people_count
+    collisions_factor = float(100 * context.people_with_collisions) / context.people_count
     missing_factor = 2. * context.people_with_unassigned / context.people_count
     groups_factor = context.groups_broken / context.people_count
     capacity_factor = sum([float(x * x) for x in context.capacity_excessions]) / context.people_count
     base = float(context.total_assigned) / context.total_maxes
-    return base - impossibilities_factor - missing_factor - groups_factor - capacity_factor
+    return base - impossibilities_factor - missing_factor - groups_factor - capacity_factor - collisions_factor
 
 
 def evaluate_completness(context):
