@@ -1,0 +1,1053 @@
+Max Retries set to: 5000
+Terms file set to: /work/mzmr_io2015/data/input/terms.txt
+Preferences file set to: /work/mzmr_io2015/data/input/preferences.txt
+Groups file set to: /work/mzmr_io2015/data/input/groups.txt
+Person prob. step set to: 0.4
+Subject prob. step set to: 0.7
+TermGroup prob. step set to: 0.1
+Preferences adjusting prob. step set to: 0.2
+Group destroy init prob. set to: 1e-05
+Group destroy prob. step set to: 1e-05
+TermFillDiffThreshold set to: 0.2
+Debug level set to: 10
+Output file set to: /work/mzmr_io2015/data/input/out/20151213_20_40_01/iter7/exec354/output.txt
+Quality of output file set to: /work/mzmr_io2015/data/input/out/20151213_20_40_01/iter7/exec354/quality.out
+Data loaded
+Solver using generating provider
+Schedule provider created
+Generating initial schedule...
+!!! Initial schedule generated after 398 tries (best ratio: 1). 0 groups destroyed !!!
+Schedule provided
+*** Initial schedule has goal value equal to 32.5041 in [-inf; 42.3821] scale ***
+Collision check started
+Collision check performed
+Subject proper assignment check started
+Subject proper assignment check performed
+**** Printing details of goal value: ****
+[[[ CompositeGoalFunction <-> 32.504065 out of 42.382114 (0.766929) +||+ aggregated using AvgAggregation ]]]
+    PersonPrefFunction: 238670 <-> 38.000000 out of 42.000000 (0.904762)
+    PersonPrefFunction: 240207 <-> 39.000000 out of 48.000000 (0.812500)
+    PersonPrefFunction: 243001 <-> 5.000000 out of 18.000000 (0.277778)
+    PersonPrefFunction: 243008 <-> 36.000000 out of 48.000000 (0.750000)
+    PersonPrefFunction: 243057 <-> 34.000000 out of 48.000000 (0.708333)
+    PersonPrefFunction: 243072 <-> 17.000000 out of 17.000000 (1.000000)
+    PersonPrefFunction: 249885 <-> 44.000000 out of 48.000000 (0.916667)
+    PersonPrefFunction: 249895 <-> 24.000000 out of 48.000000 (0.500000)
+    PersonPrefFunction: 249906 <-> 41.000000 out of 43.000000 (0.953488)
+    PersonPrefFunction: 249913 <-> 36.000000 out of 44.000000 (0.818182)
+    PersonPrefFunction: 249943 <-> 8.000000 out of 8.000000 (1.000000)
+    PersonPrefFunction: 249951 <-> 8.000000 out of 8.000000 (1.000000)
+    PersonPrefFunction: 249953 <-> 13.000000 out of 35.000000 (0.371429)
+    PersonPrefFunction: 249961 <-> 34.000000 out of 48.000000 (0.708333)
+    PersonPrefFunction: 249964 <-> 36.000000 out of 46.000000 (0.782609)
+    PersonPrefFunction: 249965 <-> 40.000000 out of 48.000000 (0.833333)
+    PersonPrefFunction: 249966 <-> 8.000000 out of 8.000000 (1.000000)
+    PersonPrefFunction: 249970 <-> 4.000000 out of 8.000000 (0.500000)
+    PersonPrefFunction: 249981 <-> 25.000000 out of 33.000000 (0.757576)
+    PersonPrefFunction: 250000 <-> 43.000000 out of 48.000000 (0.895833)
+    PersonPrefFunction: 250019 <-> 36.000000 out of 44.000000 (0.818182)
+    PersonPrefFunction: 250028 <-> 31.000000 out of 39.000000 (0.794872)
+    PersonPrefFunction: 250136 <-> 33.000000 out of 41.000000 (0.804878)
+    PersonPrefFunction: 258411 <-> 40.000000 out of 48.000000 (0.833333)
+    PersonPrefFunction: 258557 <-> 7.000000 out of 30.000000 (0.233333)
+    PersonPrefFunction: 258559 <-> 15.000000 out of 42.000000 (0.357143)
+    PersonPrefFunction: 258560 <-> 36.000000 out of 48.000000 (0.750000)
+    PersonPrefFunction: 258562 <-> 44.000000 out of 48.000000 (0.916667)
+    PersonPrefFunction: 258563 <-> 40.000000 out of 48.000000 (0.833333)
+    PersonPrefFunction: 258565 <-> 41.000000 out of 41.000000 (1.000000)
+    PersonPrefFunction: 258567 <-> 27.000000 out of 34.000000 (0.794118)
+    PersonPrefFunction: 258569 <-> 48.000000 out of 48.000000 (1.000000)
+    PersonPrefFunction: 258572 <-> 43.000000 out of 48.000000 (0.895833)
+    PersonPrefFunction: 258574 <-> 40.000000 out of 48.000000 (0.833333)
+    PersonPrefFunction: 258575 <-> 32.000000 out of 48.000000 (0.666667)
+    PersonPrefFunction: 258576 <-> 36.000000 out of 48.000000 (0.750000)
+    PersonPrefFunction: 258578 <-> 21.000000 out of 41.000000 (0.512195)
+    PersonPrefFunction: 258579 <-> 34.000000 out of 40.000000 (0.850000)
+    PersonPrefFunction: 258580 <-> 48.000000 out of 48.000000 (1.000000)
+    PersonPrefFunction: 258582 <-> 40.000000 out of 40.000000 (1.000000)
+    PersonPrefFunction: 258583 <-> 12.000000 out of 34.000000 (0.352941)
+    PersonPrefFunction: 258584 <-> 35.000000 out of 48.000000 (0.729167)
+    PersonPrefFunction: 258585 <-> 24.000000 out of 48.000000 (0.500000)
+    PersonPrefFunction: 258586 <-> 32.000000 out of 40.000000 (0.800000)
+    PersonPrefFunction: 258588 <-> 23.000000 out of 37.000000 (0.621622)
+    PersonPrefFunction: 258590 <-> 44.000000 out of 44.000000 (1.000000)
+    PersonPrefFunction: 258597 <-> 46.000000 out of 48.000000 (0.958333)
+    PersonPrefFunction: 258598 <-> 44.000000 out of 48.000000 (0.916667)
+    PersonPrefFunction: 258600 <-> 42.000000 out of 42.000000 (1.000000)
+    PersonPrefFunction: 258601 <-> 40.000000 out of 48.000000 (0.833333)
+    PersonPrefFunction: 258603 <-> 14.000000 out of 34.000000 (0.411765)
+    PersonPrefFunction: 258604 <-> 40.000000 out of 48.000000 (0.833333)
+    PersonPrefFunction: 258605 <-> 48.000000 out of 48.000000 (1.000000)
+    PersonPrefFunction: 258606 <-> 24.000000 out of 48.000000 (0.500000)
+    PersonPrefFunction: 258608 <-> 37.000000 out of 41.000000 (0.902439)
+    PersonPrefFunction: 258609 <-> 26.000000 out of 30.000000 (0.866667)
+    PersonPrefFunction: 258610 <-> 32.000000 out of 44.000000 (0.727273)
+    PersonPrefFunction: 258611 <-> 24.000000 out of 48.000000 (0.500000)
+    PersonPrefFunction: 258614 <-> 40.000000 out of 48.000000 (0.833333)
+    PersonPrefFunction: 258617 <-> 21.000000 out of 37.000000 (0.567568)
+    PersonPrefFunction: 258620 <-> 38.000000 out of 48.000000 (0.791667)
+    PersonPrefFunction: 258621 <-> 14.000000 out of 33.000000 (0.424242)
+    PersonPrefFunction: 258623 <-> 20.000000 out of 48.000000 (0.416667)
+    PersonPrefFunction: 258626 <-> 30.000000 out of 48.000000 (0.625000)
+    PersonPrefFunction: 258627 <-> 35.000000 out of 38.000000 (0.921053)
+    PersonPrefFunction: 258629 <-> 37.000000 out of 48.000000 (0.770833)
+    PersonPrefFunction: 258633 <-> 37.000000 out of 43.000000 (0.860465)
+    PersonPrefFunction: 258635 <-> 39.000000 out of 48.000000 (0.812500)
+    PersonPrefFunction: 258637 <-> 43.000000 out of 48.000000 (0.895833)
+    PersonPrefFunction: 258642 <-> 25.000000 out of 40.000000 (0.625000)
+    PersonPrefFunction: 258643 <-> 23.000000 out of 48.000000 (0.479167)
+    PersonPrefFunction: 258644 <-> 48.000000 out of 48.000000 (1.000000)
+    PersonPrefFunction: 258645 <-> 16.000000 out of 38.000000 (0.421053)
+    PersonPrefFunction: 258646 <-> 29.000000 out of 29.000000 (1.000000)
+    PersonPrefFunction: 258648 <-> 34.000000 out of 34.000000 (1.000000)
+    PersonPrefFunction: 258649 <-> 40.000000 out of 48.000000 (0.833333)
+    PersonPrefFunction: 258650 <-> 34.000000 out of 48.000000 (0.708333)
+    PersonPrefFunction: 258651 <-> 40.000000 out of 48.000000 (0.833333)
+    PersonPrefFunction: 258653 <-> 32.000000 out of 48.000000 (0.666667)
+    PersonPrefFunction: 258654 <-> 19.000000 out of 41.000000 (0.463415)
+    PersonPrefFunction: 258655 <-> 32.000000 out of 40.000000 (0.800000)
+    PersonPrefFunction: 258656 <-> 48.000000 out of 48.000000 (1.000000)
+    PersonPrefFunction: 258657 <-> 24.000000 out of 48.000000 (0.500000)
+    PersonPrefFunction: 258659 <-> 38.000000 out of 40.000000 (0.950000)
+    PersonPrefFunction: 258662 <-> 14.000000 out of 48.000000 (0.291667)
+    PersonPrefFunction: 258663 <-> 16.000000 out of 24.000000 (0.666667)
+    PersonPrefFunction: 258665 <-> 35.000000 out of 48.000000 (0.729167)
+    PersonPrefFunction: 258666 <-> 34.000000 out of 48.000000 (0.708333)
+    PersonPrefFunction: 258668 <-> 25.000000 out of 33.000000 (0.757576)
+    PersonPrefFunction: 258670 <-> 42.000000 out of 42.000000 (1.000000)
+    PersonPrefFunction: 258671 <-> 36.000000 out of 48.000000 (0.750000)
+    PersonPrefFunction: 258672 <-> 47.000000 out of 48.000000 (0.979167)
+    PersonPrefFunction: 258674 <-> 48.000000 out of 48.000000 (1.000000)
+    PersonPrefFunction: 258676 <-> 32.000000 out of 48.000000 (0.666667)
+    PersonPrefFunction: 258677 <-> 37.000000 out of 41.000000 (0.902439)
+    PersonPrefFunction: 258679 <-> 41.000000 out of 41.000000 (1.000000)
+    PersonPrefFunction: 258680 <-> 42.000000 out of 48.000000 (0.875000)
+    PersonPrefFunction: 258681 <-> 20.000000 out of 48.000000 (0.416667)
+    PersonPrefFunction: 258683 <-> 40.000000 out of 48.000000 (0.833333)
+    PersonPrefFunction: 258684 <-> 48.000000 out of 48.000000 (1.000000)
+    PersonPrefFunction: 258685 <-> 38.000000 out of 48.000000 (0.791667)
+    PersonPrefFunction: 258688 <-> 43.000000 out of 48.000000 (0.895833)
+    PersonPrefFunction: 258689 <-> 46.000000 out of 48.000000 (0.958333)
+    PersonPrefFunction: 258690 <-> 21.000000 out of 37.000000 (0.567568)
+    PersonPrefFunction: 258694 <-> 40.000000 out of 48.000000 (0.833333)
+    PersonPrefFunction: 258695 <-> 29.000000 out of 41.000000 (0.707317)
+    PersonPrefFunction: 258696 <-> 20.000000 out of 48.000000 (0.416667)
+    PersonPrefFunction: 258701 <-> 34.000000 out of 48.000000 (0.708333)
+    PersonPrefFunction: 258702 <-> 32.000000 out of 48.000000 (0.666667)
+    PersonPrefFunction: 258703 <-> 20.000000 out of 48.000000 (0.416667)
+    PersonPrefFunction: 258704 <-> 48.000000 out of 48.000000 (1.000000)
+    PersonPrefFunction: 258706 <-> 48.000000 out of 48.000000 (1.000000)
+    PersonPrefFunction: 258707 <-> 26.000000 out of 41.000000 (0.634146)
+    PersonPrefFunction: 258708 <-> 32.000000 out of 40.000000 (0.800000)
+    PersonPrefFunction: 258709 <-> 36.000000 out of 48.000000 (0.750000)
+    PersonPrefFunction: 258711 <-> 48.000000 out of 48.000000 (1.000000)
+    PersonPrefFunction: 258714 <-> 42.000000 out of 48.000000 (0.875000)
+    PersonPrefFunction: 258716 <-> 15.000000 out of 33.000000 (0.454545)
+    PersonPrefFunction: 258717 <-> 40.000000 out of 48.000000 (0.833333)
+    PersonPrefFunction: 258718 <-> 34.000000 out of 34.000000 (1.000000)
+    PersonPrefFunction: 258719 <-> 28.000000 out of 48.000000 (0.583333)
+    PersonPrefFunction: 258720 <-> 25.000000 out of 33.000000 (0.757576)
+    PersonPrefFunction: 265314 <-> 48.000000 out of 48.000000 (1.000000)
+Generated Schedule
+>> Subject: 645273
+>>> TermGroup: 645346
+>>>> Term: 645346
+>>>>> Person: 258565
+>>>>> Person: 258609
+>>>>> Person: 258679
+@@@@@@ Total count in term: 3 out of: 3
+>>> TermGroup: 645336
+>>>> Term: 645336
+>>>>> Person: 250136
+>>>>> Person: 258576
+>>>>> Person: 258584
+>>>>> Person: 258604
+>>>>> Person: 258623
+>>>>> Person: 258626
+>>>>> Person: 258635
+>>>>> Person: 258643
+>>>>> Person: 258651
+>>>>> Person: 258654
+>>>>> Person: 258709
+@@@@@@ Total count in term: 11 out of: 11
+>>> TermGroup: 645342
+>>>> Term: 645342
+>>>>> Person: 249961
+>>>>> Person: 249981
+>>>>> Person: 250028
+>>>>> Person: 258559
+>>>>> Person: 258563
+>>>>> Person: 258574
+>>>>> Person: 258588
+>>>>> Person: 258653
+>>>>> Person: 258676
+>>>>> Person: 258681
+>>>>> Person: 258706
+@@@@@@ Total count in term: 11 out of: 11
+>>> TermGroup: 645343
+>>>> Term: 645343
+>>>>> Person: 238670
+>>>>> Person: 240207
+>>>>> Person: 243008
+>>>>> Person: 249953
+>>>>> Person: 258575
+>>>>> Person: 258579
+>>>>> Person: 258597
+>>>>> Person: 258603
+>>>>> Person: 258666
+>>>>> Person: 258680
+>>>>> Person: 258685
+@@@@@@ Total count in term: 11 out of: 11
+>>> TermGroup: 645344
+>>>> Term: 645344
+>>>>> Person: 249913
+>>>>> Person: 249964
+>>>>> Person: 258562
+>>>>> Person: 258598
+>>>>> Person: 258649
+>>>>> Person: 258656
+>>>>> Person: 258677
+>>>>> Person: 258684
+>>>>> Person: 258702
+@@@@@@ Total count in term: 9 out of: 9
+>>> TermGroup: 645345
+>>>> Term: 645345
+>>>>> Person: 258569
+>>>>> Person: 258586
+>>>>> Person: 258608
+>>>>> Person: 258610
+>>>>> Person: 258614
+>>>>> Person: 258629
+>>>>> Person: 258633
+>>>>> Person: 258637
+>>>>> Person: 258674
+>>>>> Person: 258683
+>>>>> Person: 258704
+@@@@@@ Total count in term: 11 out of: 11
+>>> TermGroup: 645347
+>>>> Term: 645347
+>>>>> Person: 249965
+>>>>> Person: 250000
+>>>>> Person: 258578
+>>>>> Person: 258601
+>>>>> Person: 258605
+>>>>> Person: 258646
+>>>>> Person: 258659
+>>>>> Person: 258670
+>>>>> Person: 258672
+@@@@@@ Total count in term: 9 out of: 9
+>>> TermGroup: 645337
+>>>> Term: 645337
+>>>>> Person: 243057
+>>>>> Person: 249906
+>>>>> Person: 250019
+>>>>> Person: 258411
+>>>>> Person: 258557
+>>>>> Person: 258600
+>>>>> Person: 258606
+>>>>> Person: 258650
+>>>>> Person: 258662
+>>>>> Person: 258688
+>>>>> Person: 258703
+@@@@@@ Total count in term: 11 out of: 11
+>>> TermGroup: 645338
+>>>> Term: 645338
+>>>>> Person: 249895
+>>>>> Person: 258585
+>>>>> Person: 258590
+>>>>> Person: 258620
+>>>>> Person: 258657
+>>>>> Person: 258665
+>>>>> Person: 258689
+>>>>> Person: 258707
+>>>>> Person: 258717
+@@@@@@ Total count in term: 9 out of: 11
+>>> TermGroup: 645339
+>>>> Term: 645339
+##### Term: 645339 empty (max: 0)
+>>> TermGroup: 645340
+>>>> Term: 645340
+>>>>> Person: 249970
+>>>>> Person: 258560
+>>>>> Person: 258617
+>>>>> Person: 258671
+>>>>> Person: 258695
+>>>>> Person: 258696
+>>>>> Person: 258719
+@@@@@@ Total count in term: 7 out of: 11
+>>> TermGroup: 645341
+>>>> Term: 645341
+>>>>> Person: 249885
+>>>>> Person: 258572
+>>>>> Person: 258580
+>>>>> Person: 258611
+>>>>> Person: 258644
+>>>>> Person: 258645
+>>>>> Person: 258694
+>>>>> Person: 258701
+>>>>> Person: 258711
+>>>>> Person: 258714
+>>>>> Person: 265314
+@@@@@@ Total count in term: 11 out of: 11
+>> Subject: 645274
+>>> TermGroup: 645350
+>>>> Term: 645350
+>>>>> Person: 249953
+>>>>> Person: 249981
+>>>>> Person: 258569
+>>>>> Person: 258586
+>>>>> Person: 258604
+>>>>> Person: 258614
+>>>>> Person: 258654
+>>>>> Person: 258668
+>>>>> Person: 258694
+>>>>> Person: 258701
+>>>>> Person: 258720
+@@@@@@ Total count in term: 11 out of: 11
+>>> TermGroup: 645354
+>>>> Term: 645354
+>>>>> Person: 249964
+>>>>> Person: 258567
+>>>>> Person: 258580
+>>>>> Person: 258608
+>>>>> Person: 258609
+>>>>> Person: 258626
+>>>>> Person: 258633
+>>>>> Person: 258651
+>>>>> Person: 258663
+>>>>> Person: 258681
+>>>>> Person: 258688
+@@@@@@ Total count in term: 11 out of: 11
+>>> TermGroup: 645355
+>>>> Term: 645355
+>>>>> Person: 250028
+>>>>> Person: 258563
+>>>>> Person: 258572
+>>>>> Person: 258588
+>>>>> Person: 258590
+>>>>> Person: 258610
+>>>>> Person: 258657
+>>>>> Person: 258666
+>>>>> Person: 258679
+>>>>> Person: 258683
+>>>>> Person: 258689
+@@@@@@ Total count in term: 11 out of: 11
+>>> TermGroup: 645356
+>>>> Term: 645356
+>>>>> Person: 243001
+>>>>> Person: 243057
+>>>>> Person: 249961
+>>>>> Person: 250136
+>>>>> Person: 258578
+>>>>> Person: 258585
+>>>>> Person: 258620
+>>>>> Person: 258649
+>>>>> Person: 258653
+>>>>> Person: 258656
+@@@@@@ Total count in term: 10 out of: 10
+>>> TermGroup: 645357
+>>>> Term: 645357
+>>>>> Person: 249965
+>>>>> Person: 258557
+>>>>> Person: 258562
+>>>>> Person: 258575
+>>>>> Person: 258576
+>>>>> Person: 258600
+>>>>> Person: 258621
+>>>>> Person: 258644
+>>>>> Person: 258662
+>>>>> Person: 258672
+>>>>> Person: 258716
+@@@@@@ Total count in term: 11 out of: 11
+>>> TermGroup: 645358
+>>>> Term: 645358
+>>>>> Person: 238670
+>>>>> Person: 240207
+>>>>> Person: 243008
+>>>>> Person: 249885
+>>>>> Person: 258676
+>>>>> Person: 258704
+>>>>> Person: 258717
+>>>>> Person: 265314
+@@@@@@ Total count in term: 8 out of: 8
+>>> TermGroup: 645359
+>>>> Term: 645359
+>>>>> Person: 249913
+>>>>> Person: 258579
+>>>>> Person: 258597
+>>>>> Person: 258598
+>>>>> Person: 258605
+>>>>> Person: 258623
+>>>>> Person: 258642
+>>>>> Person: 258650
+>>>>> Person: 258659
+>>>>> Person: 258680
+>>>>> Person: 258702
+@@@@@@ Total count in term: 11 out of: 11
+>>> TermGroup: 645360
+>>>> Term: 645360
+>>>>> Person: 243072
+>>>>> Person: 258559
+>>>>> Person: 258565
+>>>>> Person: 258582
+>>>>> Person: 258606
+>>>>> Person: 258646
+>>>>> Person: 258671
+>>>>> Person: 258677
+>>>>> Person: 258706
+>>>>> Person: 258711
+>>>>> Person: 258718
+@@@@@@ Total count in term: 11 out of: 11
+>>> TermGroup: 645349
+>>>> Term: 645349
+>>>>> Person: 249906
+>>>>> Person: 258601
+>>>>> Person: 258627
+>>>>> Person: 258629
+>>>>> Person: 258637
+>>>>> Person: 258643
+>>>>> Person: 258648
+>>>>> Person: 258665
+>>>>> Person: 258684
+>>>>> Person: 258708
+@@@@@@ Total count in term: 10 out of: 10
+>>> TermGroup: 645351
+>>>> Term: 645351
+>>>>> Person: 249895
+>>>>> Person: 250000
+>>>>> Person: 258411
+>>>>> Person: 258560
+>>>>> Person: 258611
+>>>>> Person: 258655
+>>>>> Person: 258674
+>>>>> Person: 258690
+>>>>> Person: 258696
+>>>>> Person: 258703
+>>>>> Person: 258714
+@@@@@@ Total count in term: 11 out of: 11
+>>> TermGroup: 645352
+>>>> Term: 645352
+>>>>> Person: 258583
+>>>>> Person: 258584
+>>>>> Person: 258603
+>>>>> Person: 258617
+>>>>> Person: 258635
+>>>>> Person: 258695
+>>>>> Person: 258707
+>>>>> Person: 258719
+@@@@@@ Total count in term: 8 out of: 11
+>>> TermGroup: 645353
+>>>> Term: 645353
+>>>>> Person: 250019
+>>>>> Person: 258574
+>>>>> Person: 258645
+>>>>> Person: 258670
+>>>>> Person: 258685
+>>>>> Person: 258709
+@@@@@@ Total count in term: 6 out of: 6
+>> Subject: 645275
+>>> TermGroup: 645362
+>>>> Term: 645362
+>>>>> Person: 238670
+>>>>> Person: 250136
+>>>>> Person: 258560
+>>>>> Person: 258565
+>>>>> Person: 258598
+>>>>> Person: 258645
+>>>>> Person: 258646
+>>>>> Person: 258649
+>>>>> Person: 258654
+>>>>> Person: 258720
+@@@@@@ Total count in term: 10 out of: 10
+>>> TermGroup: 645366
+>>>> Term: 645366
+>>>>> Person: 240207
+>>>>> Person: 249964
+>>>>> Person: 258567
+>>>>> Person: 258597
+>>>>> Person: 258611
+>>>>> Person: 258620
+>>>>> Person: 258648
+>>>>> Person: 258663
+>>>>> Person: 258668
+>>>>> Person: 258670
+>>>>> Person: 258701
+>>>>> Person: 258702
+>>>>> Person: 258716
+@@@@@@ Total count in term: 13 out of: 13
+>>> TermGroup: 645367
+>>>> Term: 645367
+>>>>> Person: 249895
+>>>>> Person: 249953
+>>>>> Person: 258572
+>>>>> Person: 258623
+>>>>> Person: 258627
+>>>>> Person: 258629
+>>>>> Person: 258637
+>>>>> Person: 258650
+>>>>> Person: 258656
+>>>>> Person: 258683
+>>>>> Person: 258688
+>>>>> Person: 258689
+>>>>> Person: 258707
+@@@@@@ Total count in term: 13 out of: 13
+>>> TermGroup: 645363
+>>>> Term: 645363
+>>>>> Person: 250000
+>>>>> Person: 258569
+>>>>> Person: 258579
+>>>>> Person: 258580
+>>>>> Person: 258588
+>>>>> Person: 258601
+>>>>> Person: 258653
+>>>>> Person: 258665
+>>>>> Person: 258676
+>>>>> Person: 258706
+>>>>> Person: 258711
+>>>>> Person: 258718
+>>>>> Person: 265314
+@@@@@@ Total count in term: 13 out of: 13
+>>> TermGroup: 645364
+>>>> Term: 645364
+>>>>> Person: 243057
+>>>>> Person: 249885
+>>>>> Person: 249906
+>>>>> Person: 250019
+>>>>> Person: 258563
+>>>>> Person: 258608
+>>>>> Person: 258610
+>>>>> Person: 258651
+>>>>> Person: 258672
+>>>>> Person: 258681
+>>>>> Person: 258696
+@@@@@@ Total count in term: 11 out of: 12
+>>> TermGroup: 645365
+>>>> Term: 645365
+>>>>> Person: 258574
+>>>>> Person: 258586
+>>>>> Person: 258643
+>>>>> Person: 258655
+>>>>> Person: 258659
+>>>>> Person: 258671
+>>>>> Person: 258685
+>>>>> Person: 258704
+>>>>> Person: 258708
+>>>>> Person: 258714
+@@@@@@ Total count in term: 10 out of: 12
+>>> TermGroup: 645368
+>>>> Term: 645368
+>>>>> Person: 249913
+>>>>> Person: 249981
+>>>>> Person: 258557
+>>>>> Person: 258578
+>>>>> Person: 258584
+>>>>> Person: 258604
+>>>>> Person: 258609
+>>>>> Person: 258621
+>>>>> Person: 258677
+>>>>> Person: 258679
+>>>>> Person: 258690
+>>>>> Person: 258695
+>>>>> Person: 258703
+@@@@@@ Total count in term: 13 out of: 13
+>>> TermGroup: 645369
+>>>> Term: 645369
+>>>>> Person: 243008
+>>>>> Person: 258576
+>>>>> Person: 258583
+>>>>> Person: 258590
+>>>>> Person: 258600
+>>>>> Person: 258605
+>>>>> Person: 258626
+>>>>> Person: 258662
+>>>>> Person: 258684
+>>>>> Person: 258694
+@@@@@@ Total count in term: 10 out of: 13
+>> Subject: 645277
+>>> TermGroup: 645373
+>>>> Term: 645373
+>>>>> Person: 243008
+>>>>> Person: 250136
+>>>>> Person: 258572
+>>>>> Person: 258584
+>>>>> Person: 258649
+>>>>> Person: 258670
+>>>>> Person: 258683
+>>>>> Person: 258689
+@@@@@@ Total count in term: 8 out of: 8
+>>> TermGroup: 645377
+>>>> Term: 645377
+>>>>> Person: 249885
+>>>>> Person: 258563
+>>>>> Person: 258567
+>>>>> Person: 258600
+>>>>> Person: 258655
+>>>>> Person: 258681
+>>>>> Person: 258708
+>>>>> Person: 258711
+@@@@@@ Total count in term: 8 out of: 12
+>>> TermGroup: 645378
+>>>> Term: 645378
+>>>>> Person: 240207
+>>>>> Person: 258557
+>>>>> Person: 258580
+>>>>> Person: 258645
+>>>>> Person: 258651
+>>>>> Person: 258657
+>>>>> Person: 258676
+>>>>> Person: 258677
+>>>>> Person: 258690
+@@@@@@ Total count in term: 9 out of: 12
+>>> TermGroup: 645376
+>>>> Term: 645376
+>>>>> Person: 258608
+>>>>> Person: 258611
+>>>>> Person: 258614
+>>>>> Person: 258620
+>>>>> Person: 258642
+>>>>> Person: 258643
+>>>>> Person: 258650
+>>>>> Person: 258662
+>>>>> Person: 258704
+@@@@@@ Total count in term: 9 out of: 10
+>>> TermGroup: 645371
+>>>> Term: 645371
+>>>>> Person: 249906
+>>>>> Person: 250028
+>>>>> Person: 258411
+>>>>> Person: 258559
+>>>>> Person: 258582
+>>>>> Person: 258617
+>>>>> Person: 258666
+>>>>> Person: 258672
+>>>>> Person: 258684
+>>>>> Person: 258706
+>>>>> Person: 258714
+>>>>> Person: 258718
+@@@@@@ Total count in term: 12 out of: 12
+>>> TermGroup: 645372
+>>>> Term: 645372
+>>>>> Person: 249913
+>>>>> Person: 258560
+>>>>> Person: 258585
+>>>>> Person: 258601
+>>>>> Person: 258604
+>>>>> Person: 258626
+>>>>> Person: 258637
+>>>>> Person: 258668
+>>>>> Person: 258679
+>>>>> Person: 258707
+>>>>> Person: 258719
+>>>>> Person: 258720
+@@@@@@ Total count in term: 12 out of: 12
+>>> TermGroup: 645374
+>>>> Term: 645374
+>>>>> Person: 243057
+>>>>> Person: 250019
+>>>>> Person: 258574
+>>>>> Person: 258576
+>>>>> Person: 258588
+>>>>> Person: 258598
+>>>>> Person: 258606
+>>>>> Person: 258610
+>>>>> Person: 258653
+>>>>> Person: 258702
+@@@@@@ Total count in term: 10 out of: 10
+>>> TermGroup: 645375
+>>>> Term: 645375
+>>>>> Person: 250000
+>>>>> Person: 258578
+>>>>> Person: 258623
+>>>>> Person: 258633
+>>>>> Person: 258665
+>>>>> Person: 258671
+>>>>> Person: 258701
+@@@@@@ Total count in term: 7 out of: 12
+>> Subject: 645278
+>>> TermGroup: 645380
+>>>> Term: 645380
+>>>>> Person: 240207
+>>>>> Person: 243001
+>>>>> Person: 249961
+>>>>> Person: 249965
+>>>>> Person: 258559
+>>>>> Person: 258562
+>>>>> Person: 258565
+>>>>> Person: 258590
+>>>>> Person: 258597
+>>>>> Person: 258603
+>>>>> Person: 258695
+@@@@@@ Total count in term: 11 out of: 11
+>>> TermGroup: 645383
+>>>> Term: 645383
+>>>>> Person: 249981
+>>>>> Person: 258580
+>>>>> Person: 258605
+>>>>> Person: 258606
+>>>>> Person: 258644
+>>>>> Person: 258655
+>>>>> Person: 258674
+>>>>> Person: 258680
+>>>>> Person: 258684
+>>>>> Person: 258706
+@@@@@@ Total count in term: 10 out of: 10
+>>> TermGroup: 645384
+>>>> Term: 645384
+>>>>> Person: 243072
+>>>>> Person: 249895
+>>>>> Person: 249966
+>>>>> Person: 258411
+>>>>> Person: 258601
+>>>>> Person: 258637
+>>>>> Person: 258671
+>>>>> Person: 258696
+>>>>> Person: 258702
+@@@@@@ Total count in term: 9 out of: 10
+>>> TermGroup: 645382
+>>>> Term: 645382
+>>>>> Person: 258582
+>>>>> Person: 258609
+>>>>> Person: 258614
+>>>>> Person: 258617
+>>>>> Person: 258635
+>>>>> Person: 258648
+>>>>> Person: 258681
+>>>>> Person: 258685
+>>>>> Person: 258708
+>>>>> Person: 258717
+@@@@@@ Total count in term: 10 out of: 10
+>>> TermGroup: 645381
+>>>> Term: 645381
+>>>>> Person: 249964
+>>>>> Person: 250028
+>>>>> Person: 258575
+>>>>> Person: 258579
+>>>>> Person: 258610
+>>>>> Person: 258657
+>>>>> Person: 258666
+>>>>> Person: 258689
+>>>>> Person: 258709
+@@@@@@ Total count in term: 9 out of: 9
+>> Subject: 645279
+>>> TermGroup: 645391
+>>>> Term: 645391
+>>>>> Person: 249961
+>>>>> Person: 258562
+>>>>> Person: 258567
+>>>>> Person: 258575
+>>>>> Person: 258584
+>>>>> Person: 258585
+>>>>> Person: 258600
+>>>>> Person: 258659
+>>>>> Person: 258662
+>>>>> Person: 258668
+>>>>> Person: 258674
+>>>>> Person: 258720
+@@@@@@ Total count in term: 12 out of: 12
+>>> TermGroup: 645388
+>>>> Term: 645388
+>>>>> Person: 249965
+>>>>> Person: 250136
+>>>>> Person: 258574
+>>>>> Person: 258590
+>>>>> Person: 258603
+>>>>> Person: 258608
+>>>>> Person: 258633
+>>>>> Person: 258654
+>>>>> Person: 258696
+@@@@@@ Total count in term: 9 out of: 9
+>>> TermGroup: 645390
+>>>> Term: 645390
+>>>>> Person: 249953
+>>>>> Person: 258583
+>>>>> Person: 258604
+>>>>> Person: 258621
+>>>>> Person: 258627
+>>>>> Person: 258635
+>>>>> Person: 258644
+>>>>> Person: 258651
+>>>>> Person: 258694
+>>>>> Person: 258709
+>>>>> Person: 258714
+>>>>> Person: 265314
+@@@@@@ Total count in term: 12 out of: 12
+>>> TermGroup: 645389
+>>>> Term: 645389
+>>>>> Person: 238670
+>>>>> Person: 258557
+>>>>> Person: 258614
+>>>>> Person: 258620
+>>>>> Person: 258629
+>>>>> Person: 258642
+>>>>> Person: 258645
+>>>>> Person: 258646
+>>>>> Person: 258680
+>>>>> Person: 258704
+>>>>> Person: 258716
+>>>>> Person: 258719
+@@@@@@ Total count in term: 12 out of: 12
+>>> TermGroup: 645387
+>>>> Term: 645387
+>>>>> Person: 258411
+>>>>> Person: 258656
+>>>>> Person: 258672
+>>>>> Person: 258683
+>>>>> Person: 258688
+>>>>> Person: 258690
+>>>>> Person: 258703
+@@@@@@ Total count in term: 7 out of: 7
+>>> TermGroup: 645386
+>>>> Term: 645386
+>>>>> Person: 258569
+>>>>> Person: 258578
+>>>>> Person: 258609
+>>>>> Person: 258648
+>>>>> Person: 258655
+>>>>> Person: 258679
+>>>>> Person: 258684
+>>>>> Person: 258707
+>>>>> Person: 258708
+>>>>> Person: 258717
+>>>>> Person: 258718
+@@@@@@ Total count in term: 11 out of: 11
+>> Subject: 645280
+>>> TermGroup: 645399
+>>>> Term: 645399
+>>>>> Person: 243008
+>>>>> Person: 250019
+>>>>> Person: 258579
+>>>>> Person: 258588
+>>>>> Person: 258597
+>>>>> Person: 258598
+>>>>> Person: 258649
+>>>>> Person: 258653
+>>>>> Person: 258679
+>>>>> Person: 258695
+>>>>> Person: 258707
+>>>>> Person: 258711
+>>>>> Person: 258719
+@@@@@@ Total count in term: 13 out of: 13
+>>> TermGroup: 645400
+>>>> Term: 645400
+>>>>> Person: 240207
+>>>>> Person: 249895
+>>>>> Person: 250000
+>>>>> Person: 258560
+>>>>> Person: 258565
+>>>>> Person: 258575
+>>>>> Person: 258578
+>>>>> Person: 258585
+>>>>> Person: 258586
+>>>>> Person: 258657
+>>>>> Person: 258690
+>>>>> Person: 258717
+>>>>> Person: 258720
+@@@@@@ Total count in term: 13 out of: 13
+>>> TermGroup: 645394
+>>>> Term: 645394
+>>>>> Person: 258582
+>>>>> Person: 258603
+>>>>> Person: 258644
+>>>>> Person: 258656
+>>>>> Person: 258672
+>>>>> Person: 258680
+>>>>> Person: 258683
+>>>>> Person: 258685
+>>>>> Person: 258709
+@@@@@@ Total count in term: 9 out of: 9
+>>> TermGroup: 645395
+>>>> Term: 645395
+>>>>> Person: 249913
+>>>>> Person: 258580
+>>>>> Person: 258584
+>>>>> Person: 258590
+>>>>> Person: 258606
+>>>>> Person: 258609
+>>>>> Person: 258611
+>>>>> Person: 258617
+>>>>> Person: 258626
+>>>>> Person: 258651
+>>>>> Person: 258654
+>>>>> Person: 258676
+>>>>> Person: 265314
+@@@@@@ Total count in term: 13 out of: 13
+>>> TermGroup: 645396
+>>>> Term: 645396
+>>>>> Person: 249885
+>>>>> Person: 249964
+>>>>> Person: 258562
+>>>>> Person: 258572
+>>>>> Person: 258643
+>>>>> Person: 258646
+>>>>> Person: 258650
+>>>>> Person: 258659
+>>>>> Person: 258670
+>>>>> Person: 258677
+>>>>> Person: 258701
+@@@@@@ Total count in term: 11 out of: 11
+>>> TermGroup: 645397
+>>>> Term: 645397
+>>>>> Person: 243057
+>>>>> Person: 243072
+>>>>> Person: 249906
+>>>>> Person: 258559
+>>>>> Person: 258576
+>>>>> Person: 258583
+>>>>> Person: 258614
+>>>>> Person: 258620
+>>>>> Person: 258621
+>>>>> Person: 258623
+>>>>> Person: 258627
+>>>>> Person: 258629
+>>>>> Person: 258635
+@@@@@@ Total count in term: 13 out of: 13
+>>> TermGroup: 645398
+>>>> Term: 645398
+>>>>> Person: 238670
+>>>>> Person: 249943
+>>>>> Person: 249951
+>>>>> Person: 249953
+>>>>> Person: 258633
+>>>>> Person: 258642
+>>>>> Person: 258665
+>>>>> Person: 258668
+>>>>> Person: 258674
+>>>>> Person: 258689
+>>>>> Person: 258694
+>>>>> Person: 258714
+>>>>> Person: 258716
+@@@@@@ Total count in term: 13 out of: 13
+>>> TermGroup: 645393
+>>>> Term: 645393
+>>>>> Person: 249961
+>>>>> Person: 249965
+>>>>> Person: 250028
+>>>>> Person: 250136
+>>>>> Person: 258563
+>>>>> Person: 258569
+>>>>> Person: 258605
+>>>>> Person: 258648
+>>>>> Person: 258666
+>>>>> Person: 258688
+>>>>> Person: 258703
+@@@@@@ Total count in term: 11 out of: 11
+>> Subject: 645282
+>>> TermGroup: 645402
+>>>> Term: 645402
+>>>>> Person: 249965
+>>>>> Person: 250000
+>>>>> Person: 250028
+>>>>> Person: 258563
+>>>>> Person: 258574
+>>>>> Person: 258604
+>>>>> Person: 258627
+>>>>> Person: 258633
+>>>>> Person: 258644
+>>>>> Person: 258650
+>>>>> Person: 258694
+>>>>> Person: 258701
+@@@@@@ Total count in term: 12 out of: 12
+>>> TermGroup: 645403
+>>>> Term: 645403
+>>>>> Person: 249885
+>>>>> Person: 249981
+>>>>> Person: 258562
+>>>>> Person: 258575
+>>>>> Person: 258576
+>>>>> Person: 258605
+>>>>> Person: 258670
+>>>>> Person: 258674
+>>>>> Person: 258702
+>>>>> Person: 258709
+@@@@@@ Total count in term: 10 out of: 10
+>>> TermGroup: 645404
+>>>> Term: 645404
+>>>>> Person: 243008
+>>>>> Person: 250019
+>>>>> Person: 258411
+>>>>> Person: 258606
+>>>>> Person: 258629
+>>>>> Person: 258637
+>>>>> Person: 258645
+>>>>> Person: 258663
+>>>>> Person: 265314
+@@@@@@ Total count in term: 9 out of: 9
+>>> TermGroup: 645405
+>>>> Term: 645405
+>>>>> Person: 238670
+>>>>> Person: 258582
+>>>>> Person: 258603
+>>>>> Person: 258621
+>>>>> Person: 258665
+>>>>> Person: 258666
+>>>>> Person: 258671
+>>>>> Person: 258677
+>>>>> Person: 258685
+>>>>> Person: 258688
+>>>>> Person: 258704
+>>>>> Person: 258711
+>>>>> Person: 258718
+@@@@@@ Total count in term: 13 out of: 13
+>>> TermGroup: 645406
+>>>> Term: 645406
+>>>>> Person: 249906
+>>>>> Person: 249961
+>>>>> Person: 258567
+>>>>> Person: 258569
+>>>>> Person: 258579
+>>>>> Person: 258585
+>>>>> Person: 258597
+>>>>> Person: 258598
+>>>>> Person: 258600
+>>>>> Person: 258623
+>>>>> Person: 258635
+>>>>> Person: 258653
+>>>>> Person: 258656
+@@@@@@ Total count in term: 13 out of: 13
+>>> TermGroup: 645407
+>>>> Term: 645407
+>>>>> Person: 249913
+>>>>> Person: 258559
+>>>>> Person: 258565
+>>>>> Person: 258572
+>>>>> Person: 258586
+>>>>> Person: 258608
+>>>>> Person: 258611
+>>>>> Person: 258626
+>>>>> Person: 258646
+>>>>> Person: 258649
+>>>>> Person: 258659
+>>>>> Person: 258680
+>>>>> Person: 258706
+@@@@@@ Total count in term: 13 out of: 13
+>>> TermGroup: 645408
+>>>> Term: 645408
+>>>>> Person: 243001
+>>>>> Person: 243057
+>>>>> Person: 249895
+>>>>> Person: 258557
+>>>>> Person: 258583
+>>>>> Person: 258588
+>>>>> Person: 258610
+>>>>> Person: 258654
+>>>>> Person: 258662
+>>>>> Person: 258676
+>>>>> Person: 258681
+>>>>> Person: 258716
+>>>>> Person: 258717
+@@@@@@ Total count in term: 13 out of: 13
+>>> TermGroup: 645409
+>>>> Term: 645409
+>>>>> Person: 249964
+>>>>> Person: 258560
+>>>>> Person: 258601
+>>>>> Person: 258617
+>>>>> Person: 258642
+>>>>> Person: 258643
+>>>>> Person: 258657
+>>>>> Person: 258695
+>>>>> Person: 258696
+>>>>> Person: 258703
+>>>>> Person: 258719
+@@@@@@ Total count in term: 11 out of: 13
+DONE
