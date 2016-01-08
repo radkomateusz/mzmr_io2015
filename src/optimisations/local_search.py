@@ -3,14 +3,14 @@ from random import random, randint
 import math
 import copy
 from datetime import datetime
-
 from optimisations.onlybetterchangesiterator import OnlyBetterChangesIterator
 from parsing.parser import parse
 from ranker.goal import evaluate_goal
 from randomchanges import RandomChanges
 
 
-class LocalSearch:
+# todo: does not work!
+class QuickLocalSearch:
     STARTING_TEMPERATURE = 100
     MIN_TEMPERATURE = 1e-10
 
@@ -85,7 +85,7 @@ class LocalSearch:
 
 configuration, assignments = parse()
 
-optimiser = LocalSearch(configuration, list(assignments))
+optimiser = QuickLocalSearch(configuration, list(assignments))
 assignments, current_cost, best_assignments, best_cost = optimiser.search()
 
 print "Current goal value: " + str(current_cost)

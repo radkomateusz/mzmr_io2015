@@ -8,7 +8,7 @@ from ranker.goal import evaluate_goal
 from randomchanges import RandomChanges
 
 
-class SimulatedAnnealing:
+class GreedyLocalSearch:
     STARTING_TEMPERATURE = 100
     MIN_TEMPERATURE = 1e-10
 
@@ -23,41 +23,21 @@ class SimulatedAnnealing:
         value, completness = evaluate_goal(self.configuration, assignments)
         return value
 
-    def generate_next_assignments(self, assignments, temperature):
-        depth = randint(1, 4)
-        depth = 3
-        return RandomChanges.iterate_chained(assignments, depth=depth), depth
-
-    def acceptance_probability(self, old_cost, new_cost, T):
-        # print "newcost: ",new_cost
-        # print "oldcost: ",old_cost
-        # print "ap: ", math.exp((new_cost - old_cost)/T)
-        try:
-            ap = math.exp(1000 * (new_cost - old_cost) / T)
-        except OverflowError:
-            ap = 1
-        return ap
-
     def save_if_best_solution(self, new_assignments, new_cost):
         if new_cost > self.best_cost:
             self.best_assignments = copy.deepcopy(new_assignments)
             self.best_cost = new_cost
         pass
 
-    def anneal(self):
-        temperature = self.STARTING_TEMPERATURE
-        alpha = 0.999
+    def run(self):
+        depth = 2
 
         iter_num = 1
         with open('results_' + datetime.now().strftime('%Y_%m_%d_%H_%M_%S') + '.csv', 'a') as file:
-            file.write(
-                "Starting temperature: " + str(temperature) +
-                "\nTemperature to stop at: " + str(self.MIN_TEMPERATURE) +
-                "\nalpha: " + str(alpha) +
-                "\n\n Goal function values:\n")
+            file.write("Depth:\t{0}\n".format(depth))
+            file.write("Goal function values:\n")
 
-            while temperature > self.MIN_TEMPERATURE:
-                depth = 2
+            while True:
                 changes_found = False
                 generator = RandomChanges()
                 for new_assignments in generator.iterate_chained(self.current_assignments, depth=depth):
@@ -65,18 +45,15 @@ class SimulatedAnnealing:
 
                     self.save_if_best_solution(new_assignments, new_cost)
 
-                    # print self.current_cost, new_cost, 'cost'
                     if self.current_cost < new_cost:
-                        # if self.acceptance_probability(self.current_cost, new_cost, temperature) > random():
                         self.current_assignments = new_assignments
                         self.current_cost = new_cost
 
                         changes_found = True
                         break
 
-                file.write("{0};\t{1};\t{2}\n".format(iter_num, self.current_cost, depth))
-                print("{0};\t{1};\t{2}".format(iter_num, self.current_cost, depth))
-                temperature *= alpha
+                file.write("{0};\t{1};\n".format(iter_num, self.current_cost))
+                print("{0};\t{1}".format(iter_num, self.current_cost))
                 iter_num += 1
 
                 if not changes_found:
@@ -87,11 +64,8 @@ class SimulatedAnnealing:
 
 configuration, assignments = parse()
 
-annealing_engine = SimulatedAnnealing(configuration, list(assignments))
-assignments, current_cost, best_assignments, best_cost = annealing_engine.anneal()
+annealing_engine = GreedyLocalSearch(configuration, list(assignments))
+assignments, current_cost, best_assignments, best_cost = annealing_engine.run()
 
 print "Current goal value: " + str(current_cost)
 print "Best cost: " + str(best_cost)
-
-# TODO maybe printout the solution
-# print "Best solution: " + str(best_assignments)
