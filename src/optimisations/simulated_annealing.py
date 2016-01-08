@@ -27,18 +27,6 @@ class SimulatedAnnealing:
         depth = randint(1, 4)
         return RandomChanges.chained(assignments, depth=depth), depth
 
-    def swap_common_subjects_for_given_persons(self, assignments, i, j):
-        assignment_first = dict(assignments[i].subject_ids_to_term_ids)
-        assignment_second = dict(assignments[j].subject_ids_to_term_ids)
-        for key in assignment_first:
-            if key in assignment_second:
-                if random() > 0.5:  # todo: co to robi? wyrzuciłem o w Changes a może trzeba dodać
-                    tmp = assignment_second[key]
-                    assignment_second[key] = assignment_first[key]
-                    assignment_first[key] = tmp
-        assignments[i].subject_ids_to_term_ids = assignment_first
-        assignments[j].subject_ids_to_term_ids = assignment_second
-
     def acceptance_probability(self, old_cost, new_cost, T):
         # print "newcost: ",new_cost
         # print "oldcost: ",old_cost

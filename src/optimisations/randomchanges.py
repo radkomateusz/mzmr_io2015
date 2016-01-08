@@ -27,12 +27,14 @@ class RandomChanges:
 
         assignment_first = dict(assignments[first].subject_ids_to_term_ids)
         assignment_second = dict(assignments[second].subject_ids_to_term_ids)
-        for key in assignment_first:
-            if key in assignment_second:
-                if random() > 0.5:
-                    tmp = assignment_second[key]
-                    assignment_second[key] = assignment_first[key]
-                    assignment_first[key] = tmp
+        common_subjects = set(assignment_first.keys()).intersection(assignment_second.keys())
+
+        if len(common_subjects) > 0:
+            subject = sample(common_subjects, 1)[0]
+            tmp = assignment_second[subject]
+            assignment_second[subject] = assignment_first[subject]
+            assignment_first[subject] = tmp
+
         assignments[first].subject_ids_to_term_ids = assignment_first
         assignments[second].subject_ids_to_term_ids = assignment_second
 
@@ -47,6 +49,7 @@ class RandomChanges:
         people_to_avoid = set()
         for i in xrange(depth - 1):
             people_to_avoid.add(first)
-            first, second = RandomChanges.do_single_change(assignments, person_to_use=second, people_to_avoid=people_to_avoid)
+            first, second = RandomChanges.do_single_change(assignments, person_to_use=second,
+                                                           people_to_avoid=people_to_avoid)
 
         return assignments
