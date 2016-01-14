@@ -1,8 +1,8 @@
 # coding=utf-8
-from random import random, randint
-import math
-import copy
 from datetime import datetime
+import copy
+import time
+
 from parsing.parser import parse
 from ranker.goal import evaluate_goal
 from randomchanges import RandomChanges
@@ -31,11 +31,12 @@ class GreedyLocalSearch:
 
     def run(self):
         depth = 2
-
         iter_num = 1
+        start = time.time()
         with open('results_' + datetime.now().strftime('%Y_%m_%d_%H_%M_%S') + '.csv', 'a') as file:
-            file.write("Depth:\t{0}\n".format(depth))
-            file.write("Goal function values:\n")
+            file.write("Alg:\t{0}\n".format('greedy_randomized'))
+            file.write("Depth:\t{0}\n\n".format(depth))
+            file.write("Iteration;\tElapsed (s);\tQuality (-inf,1]\n")
 
             while True:
                 changes_found = False
@@ -52,8 +53,7 @@ class GreedyLocalSearch:
                         changes_found = True
                         break
 
-                file.write("{0};\t{1};\n".format(iter_num, self.current_cost))
-                print("{0};\t{1}".format(iter_num, self.current_cost))
+                file.write("{0};\t\t\t{1};\t{2}\n".format(iter_num, time.time() - start, self.current_cost))
                 iter_num += 1
 
                 if not changes_found:
