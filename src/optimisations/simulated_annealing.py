@@ -87,5 +87,9 @@ assignments, current_cost, best_assignments, best_cost = annealing_engine.anneal
 print "Current goal value: " + str(current_cost)
 print "Best cost: " + str(best_cost)
 
-# TODO maybe printout the solution
-# print "Best solution: " + str(best_assignments)
+# maybe save the solution
+with open(str(best_cost) + '_output_annealing_' + datetime.now().strftime('%Y_%m_%d_%H_%M_%S') + '.csv', 'a') as file:
+    for assignment in best_assignments:
+        file.write('[{0}]\n'.format(assignment.person.id))
+        for subject_id, term_id in assignment.subject_ids_to_term_ids.iteritems():
+            file.write('{0}:{1}\n'.format(subject_id, term_id))
