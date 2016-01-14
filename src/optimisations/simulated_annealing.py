@@ -2,6 +2,7 @@
 from random import random, randint
 import math
 import copy
+import time
 from datetime import datetime
 from parsing.parser import parse
 from ranker.goal import evaluate_goal
@@ -25,8 +26,7 @@ class SimulatedAnnealing:
 
     def generate_next_assignments(self, assignments, temperature):
         depth = randint(1, 4)
-        depth = 3
-        return RandomChanges.iterate_chained(assignments, depth=depth), depth
+        return RandomChanges.chained(assignments, depth=depth), depth
 
     def acceptance_probability(self, old_cost, new_cost, T):
         # print "newcost: ",new_cost
@@ -47,40 +47,35 @@ class SimulatedAnnealing:
     def anneal(self):
         temperature = self.STARTING_TEMPERATURE
         alpha = 0.999
-
+        start = time.time()
         iter_num = 1
-        with open('results_' + datetime.now().strftime('%Y_%m_%d_%H_%M_%S') + '.csv', 'a') as file:
-            file.write(
-                "Starting temperature: " + str(temperature) +
-                "\nTemperature to stop at: " + str(self.MIN_TEMPERATURE) +
-                "\nalpha: " + str(alpha) +
-                "\n\n Goal function values:\n")
+        max_depth = 1
+        with open('annealing_' + datetime.now().strftime('%Y_%m_%d_%H_%M_%S') + '.csv', 'a') as file:
+            file.write("Alg:\t{0}\n".format('annealing'))
+            file.write("Starting temperature: {0}\n".format(str(temperature)))
+            file.write("Temperature to stop at: {0}\n".format(str(self.MIN_TEMPERATURE)))
+            file.write("Temp. loss factor: {0}\n".format(str(alpha)))
+            file.write("Max depth: {0}\n\n".format(str(max_depth)))
+            file.write("Iteration;\tElapsed (s);\tQuality (-inf,1]\n")
 
             while temperature > self.MIN_TEMPERATURE:
-                depth = 2
-                changes_found = False
-                generator = RandomChanges()
-                for new_assignments in generator.iterate_chained(self.current_assignments, depth=depth):
-                    new_cost = self.cost(new_assignments)
+                new_assignments, depth = self.generate_next_assignments(self.current_assignments, temperature)
+                new_assignments = list(new_assignments)
+                new_cost = self.cost(new_assignments)
 
-                    self.save_if_best_solution(new_assignments, new_cost)
+                self.save_if_best_solution(new_assignments, new_cost)
 
-                    # print self.current_cost, new_cost, 'cost'
-                    if self.current_cost < new_cost:
-                        # if self.acceptance_probability(self.current_cost, new_cost, temperature) > random():
-                        self.current_assignments = new_assignments
-                        self.current_cost = new_cost
+                if self.acceptance_probability(self.current_cost, new_cost, temperature) > random():
+                    self.current_assignments = new_assignments
+                    self.current_cost = new_cost
 
-                        changes_found = True
-                        break
+                row = "{0};\t{1};\t{2}\n".format(iter_num, time.time() - start, self.current_cost)
+                file.write(row)
+                if iter_num % 100 == 0:
+                    print row
 
-                file.write("{0};\t{1};\t{2}\n".format(iter_num, self.current_cost, depth))
-                print("{0};\t{1};\t{2}".format(iter_num, self.current_cost, depth))
                 temperature *= alpha
                 iter_num += 1
-
-                if not changes_found:
-                    break
 
         return self.current_assignments, self.current_cost, self.best_assignments, self.best_cost
 

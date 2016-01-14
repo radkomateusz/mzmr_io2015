@@ -34,7 +34,7 @@ class GreedyLocalSearch:
         depth = 1
         iter_num = 1
         start = time.time()
-        alg_name = 'randomized_greedy_search'
+        alg_name = 'greedy_search'
         with open(alg_name + '_' + datetime.now().strftime('%Y_%m_%d_%H_%M_%S') + '.csv', 'a') as file:
             file.write("Alg:\t{0}\n".format(alg_name))
             file.write("Depth:\t{0}\n\n".format(depth))
@@ -43,7 +43,7 @@ class GreedyLocalSearch:
             while True:
                 changes_found = False
                 generator = RandomChanges()
-                for new_assignments in generator.iterate_chained(self.current_assignments, depth=depth):
+                for new_assignments in generator.iterate_chained(self.current_assignments, depth=depth, randomize=False):
                     new_cost = self.cost(new_assignments)
 
                     self.save_if_best_solution(new_assignments, new_cost)

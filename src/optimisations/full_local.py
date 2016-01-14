@@ -1,9 +1,7 @@
 # coding=utf-8
 from datetime import datetime
 import copy
-
 import time
-
 from parsing.parser import parse
 from ranker.goal import evaluate_goal
 from randomchanges import RandomChanges
@@ -34,33 +32,37 @@ class GreedyLocalSearch:
         depth = 1
         iter_num = 1
         start = time.time()
-        alg_name = 'randomized_greedy_search'
+        alg_name = 'full_local_search'
         with open(alg_name + '_' + datetime.now().strftime('%Y_%m_%d_%H_%M_%S') + '.csv', 'a') as file:
             file.write("Alg:\t{0}\n".format(alg_name))
             file.write("Depth:\t{0}\n\n".format(depth))
             file.write("Iteration;\tElapsed (s);\tQuality (-inf,1]\n")
 
             while True:
-                changes_found = False
                 generator = RandomChanges()
-                for new_assignments in generator.iterate_chained(self.current_assignments, depth=depth):
+
+                iter_best = None
+                iter_best_cost = 0.
+
+                for new_assignments in generator.iterate_chained(self.current_assignments, depth=depth, randomize=False):
                     new_cost = self.cost(new_assignments)
 
                     self.save_if_best_solution(new_assignments, new_cost)
 
-                    if self.current_cost < new_cost:
-                        self.current_assignments = new_assignments
-                        self.current_cost = new_cost
+                    if self.current_cost < new_cost and iter_best_cost < new_cost:
+                        iter_best = new_assignments
+                        iter_best_cost = new_cost
 
-                        changes_found = True
-                        break
+                if self.current_cost < iter_best_cost:
+                    self.current_assignments = iter_best
+                    self.current_cost = iter_best_cost
 
                 row = "{0};\t\t\t{1};\t{2}\n".format(iter_num, time.time() - start, self.current_cost)
                 file.write(row)
                 print row
                 iter_num += 1
 
-                if not changes_found:
+                if iter_best is None:
                     break
 
         return self.current_assignments, self.current_cost, self.best_assignments, self.best_cost

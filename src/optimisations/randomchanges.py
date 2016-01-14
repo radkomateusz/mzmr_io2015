@@ -46,12 +46,14 @@ class RandomChanges:
         assignments[second].subject_ids_to_term_ids = assignment_second
         return first, second
 
-    def iterate_chained(self, assignments, depth=2):
+    def iterate_chained(self, assignments, depth=2, randomize=True):
         people_involved_count = depth + 1
 
         size = len(assignments)
         combinations = list(itertools.combinations(xrange(size), people_involved_count))
-        shuffle(combinations)
+        if randomize:
+            shuffle(combinations)
+
         for indices in combinations:
             subjects = [set(assignments[x].subject_ids_to_term_ids.keys()) for x in indices]
             for subject in set.intersection(*subjects):
@@ -73,12 +75,19 @@ class RandomChanges:
     def chained(source_assignments, depth=1):
         assignments = copy.deepcopy(source_assignments)
 
-        first, second = RandomChanges.do_single_change(assignments)
+        result = first = second = None
+        while result is None:
+            result = RandomChanges.do_single_change(assignments)
+        first, second = result
 
         people_to_avoid = set()
         for i in xrange(depth - 1):
             people_to_avoid.add(first)
-            first, second = RandomChanges.do_single_change(assignments, person_to_use=second,
-                                                           people_to_avoid=people_to_avoid)
+
+            result = None
+            while result is None:
+                result = RandomChanges.do_single_change(assignments, person_to_use=second,
+                                                        people_to_avoid=people_to_avoid)
+            first, second = result
 
         return assignments
