@@ -30,7 +30,7 @@ class SimulatedAnnealing:
         return RandomChanges.chained(assignments, depth=depth), depth
 
     def get_max_depth(self, temperature):
-        return max(int(temperature ** 0.35), 1)
+        return max(int((temperature * 10000) ** 0.35), 1)
 
     def acceptance_probability(self, old_cost, new_cost, T):
         try:
@@ -71,7 +71,7 @@ class SimulatedAnnealing:
                 row = "{0};\t{1};\t{2}\n".format(iter_num, time.time() - start, self.current_cost)
                 file.write(row)
                 if iter_num % 100 == 0:
-                    print row
+                    print self.get_max_depth(temperature), '|', row
 
                 temperature *= self.ALPHA
                 iter_num += 1
